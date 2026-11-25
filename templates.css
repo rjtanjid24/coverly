@@ -1,0 +1,228 @@
+/* Cover page styles. Everything inside .page is sized in mm / em so the preview, print and PDF match. */
+.page { position: relative; background: #fff; color: #1b1f24; font-family: var(--font); overflow: hidden; box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page *, .page *::before, .page *::after { box-sizing: border-box; }
+.page h1, .page h4 { margin: 0; }
+.page .content { position: absolute; inset: 0; padding: 17mm 19mm; display: flex; flex-direction: column; overflow: hidden; font-size: calc(12pt * var(--fs) * var(--k)); line-height: 1.35; overflow-wrap: anywhere; word-break: break-word; }
+.page .grow { flex: 1 1 auto; min-height: 1.2em; }
+.page .grow.soft { flex: 0.45 1 auto; min-height: 0; }
+.page .logo { height: calc(var(--logo) * var(--k)); width: auto; max-width: calc(var(--logo) * 2 * var(--k)); object-fit: contain; display: block; }
+.page .logo.small { height: calc(var(--logo) * 0.62 * var(--k)); }
+.page .logos { display: flex; gap: 6mm; align-items: center; }
+.page .logos.place-center { justify-content: center; }
+.page .logos.place-left { justify-content: flex-start; }
+.page .logos.place-right { justify-content: flex-end; }
+.page .extra { margin-top: 4mm; font-size: 0.85em; font-style: italic; color: #444; text-align: center; }
+.page .kv { margin: 0; display: grid; gap: 1.6mm; }
+.page .kv > div { display: grid; gap: 0.2mm; }
+.page .kv dt { font-size: 0.66em; letter-spacing: 0.13em; text-transform: uppercase; color: #727884; }
+.page .kv dd { margin: 0; font-size: 0.92em; font-weight: 500; }
+.page .person h4 { margin: 0 0 1.5mm; font-size: 0.7em; letter-spacing: 0.2em; text-transform: uppercase; color: var(--s); }
+.page .person .pname { font-weight: 700; color: var(--p); font-size: 1.05em; }
+.page .person .pline { font-size: 0.9em; line-height: 1.45; }
+
+/* ---------- Borders ---------- */
+.page .frame { position: absolute; inset: 7mm; pointer-events: none; }
+.page .frame i { display: none; }
+.frame-single { border: calc(var(--bw) * 1px) solid var(--p); }
+.frame-double { border: calc(var(--bw) * 3px) double var(--p); }
+.frame-decorative { border: calc(var(--bw) * 1.5px) solid var(--p);
+  background:
+    linear-gradient(var(--s), var(--s)) top left / 3.4mm 3.4mm no-repeat,
+    linear-gradient(var(--s), var(--s)) top right / 3.4mm 3.4mm no-repeat,
+    linear-gradient(var(--s), var(--s)) bottom left / 3.4mm 3.4mm no-repeat,
+    linear-gradient(var(--s), var(--s)) bottom right / 3.4mm 3.4mm no-repeat; }
+.frame-decorative i { display: block; position: absolute; inset: 1.8mm; border: 1px solid var(--s); }
+.frame-corners { --L: 16mm; --t: calc(var(--bw) * 1px);
+  background:
+    linear-gradient(var(--p), var(--p)) top left / var(--L) var(--t) no-repeat,
+    linear-gradient(var(--p), var(--p)) top left / var(--t) var(--L) no-repeat,
+    linear-gradient(var(--p), var(--p)) top right / var(--L) var(--t) no-repeat,
+    linear-gradient(var(--p), var(--p)) top right / var(--t) var(--L) no-repeat,
+    linear-gradient(var(--p), var(--p)) bottom left / var(--L) var(--t) no-repeat,
+    linear-gradient(var(--p), var(--p)) bottom left / var(--t) var(--L) no-repeat,
+    linear-gradient(var(--p), var(--p)) bottom right / var(--L) var(--t) no-repeat,
+    linear-gradient(var(--p), var(--p)) bottom right / var(--t) var(--L) no-repeat; }
+
+/* ---------- 1. Classic Academic ---------- */
+.t-classic .top { text-align: center; }
+.t-classic .top .logos { margin-bottom: 3.5mm; }
+.t-classic .college { font-size: 1.5em; font-weight: 700; color: var(--p); text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.2; }
+.t-classic .affil { margin-top: 1.2mm; font-size: 0.95em; font-style: italic; }
+.t-classic .loc { margin-top: 0.8mm; font-size: 0.78em; color: #5b616b; letter-spacing: 0.14em; text-transform: uppercase; }
+.t-classic .orn { display: flex; align-items: center; gap: 3mm; margin: 6mm 12mm; }
+.t-classic .orn span { flex: 1; height: 1px; background: var(--s); }
+.t-classic .orn b { width: 2.4mm; height: 2.4mm; background: var(--s); transform: rotate(45deg); }
+.t-classic .dept { text-align: center; font-weight: 600; font-size: 1.05em; color: var(--p); }
+.t-classic .doctype { text-align: center; margin: 8mm 0 3mm; letter-spacing: 0.3em; text-transform: uppercase; font-size: 0.82em; color: var(--s); font-weight: 700; }
+.t-classic .title { text-align: center; font-size: 2em; line-height: 1.2; font-weight: 700; color: var(--p); margin: 0 0 3mm; }
+.t-classic .exp { text-align: center; font-style: italic; font-size: 1.05em; margin-bottom: 3mm; }
+.t-classic .subs { text-align: center; line-height: 1.7; }
+.t-classic .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 10mm; border-top: 1px solid var(--s); padding-top: 5mm; }
+.t-classic .foot { display: flex; justify-content: center; flex-wrap: wrap; gap: 2mm 8mm; margin-top: 6mm; font-size: 0.9em; }
+
+/* ---------- 2. Modern Minimal ---------- */
+.t-minimal .content { padding: 20mm 22mm; }
+.t-minimal .top { display: flex; align-items: center; justify-content: space-between; gap: 6mm; }
+.t-minimal .top .logos { justify-content: flex-start; }
+.t-minimal .mn-inst { max-width: 58%; text-align: right; font-size: 0.75em; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--p); line-height: 1.4; }
+.t-minimal .mn-inst small { display: block; margin-top: 0.8mm; font-weight: 400; letter-spacing: 0.04em; text-transform: none; color: #6a707a; }
+.t-minimal .doctype { font-size: 0.78em; letter-spacing: 0.28em; text-transform: uppercase; color: var(--s); font-weight: 700; margin-bottom: 3mm; }
+.t-minimal .rule { border: 0; border-top: 1px solid #cdd1d7; margin: 6mm 0; width: 100%; }
+.t-minimal .rule.thick { border-top: calc(var(--bw) * 2px) solid var(--p); width: 24mm; margin: 0 0 7mm; }
+.t-minimal .title { font-size: 2.9em; line-height: 1.08; font-weight: 700; letter-spacing: -0.01em; color: var(--p); }
+.t-minimal .exp { margin-top: 4mm; font-size: 1.1em; color: #444; }
+.t-minimal .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7mm; }
+.t-minimal .grid h4 { margin-bottom: 3mm; font-size: 0.7em; letter-spacing: 0.2em; text-transform: uppercase; color: var(--p); }
+.t-minimal .extra { text-align: left; }
+
+/* ---------- 3. Formal University ---------- */
+.t-formal .head { display: grid; grid-template-columns: calc(var(--logo) * var(--k) * 1.1) 1fr calc(var(--logo) * var(--k) * 1.1); gap: 5mm; align-items: center; }
+.t-formal .side { display: flex; justify-content: center; }
+.t-formal .mid { text-align: center; }
+.t-formal .college { font-size: 1.4em; font-weight: 700; color: var(--p); text-transform: uppercase; line-height: 1.2; letter-spacing: 0.03em; }
+.t-formal .affil { margin-top: 1.2mm; font-size: 0.92em; font-style: italic; }
+.t-formal .loc { margin-top: 0.8mm; font-size: 0.78em; letter-spacing: 0.14em; text-transform: uppercase; color: #5b616b; }
+.t-formal .dbl { height: calc(var(--bw) * 3px + 1px); border-top: calc(var(--bw) * 1px) solid var(--p); border-bottom: calc(var(--bw) * 1px) solid var(--p); margin: 5mm 0; }
+.t-formal .dbl.thin { height: 4px; border-width: 1px; margin: 3mm 0; }
+.t-formal .dept { text-align: center; font-weight: 600; font-size: 1.05em; color: var(--p); }
+.t-formal .doctype-box { text-align: center; margin: 8mm 0 5mm; }
+.t-formal .doctype-box span { display: inline-block; padding: 2mm 9mm; border-top: 1px solid var(--p); border-bottom: 1px solid var(--p); letter-spacing: 0.26em; text-transform: uppercase; font-weight: 700; font-size: 0.9em; color: var(--p); }
+.t-formal .title { text-align: center; font-size: 1.9em; line-height: 1.22; font-weight: 700; color: #111; margin-bottom: 3mm; }
+.t-formal .exp { text-align: center; font-style: italic; margin-bottom: 3mm; }
+.t-formal .subs { text-align: center; line-height: 1.7; }
+.t-formal .stack { display: grid; grid-template-columns: 1fr 1fr; text-align: center; }
+.t-formal .stack .person { padding: 0 6mm; }
+.t-formal .stack .person + .person { border-left: 1px solid var(--s); }
+.t-formal .foot { display: flex; justify-content: center; flex-wrap: wrap; gap: 2mm 8mm; font-size: 0.9em; }
+
+/* ---------- 4. Practical Notebook ---------- */
+.t-practical .band { display: flex; align-items: center; gap: 5mm; background: var(--p); color: #fff; padding: 4mm 5mm; }
+.t-practical .band .logos { flex: none; gap: 3mm; }
+.t-practical .band .logo { background: #fff; border-radius: 1.5mm; padding: 0.8mm; }
+.t-practical .bt { flex: 1; text-align: center; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; font-size: 1.1em; line-height: 1.25; }
+.t-practical .bt small { display: block; margin-top: 1mm; font-weight: 400; text-transform: none; letter-spacing: 0.02em; font-size: 0.72em; opacity: 0.88; }
+.t-practical .dept { text-align: center; margin-top: 4mm; font-weight: 600; color: var(--p); }
+.t-practical .doctype { text-align: center; font-size: 1.7em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin: 5mm 0 3mm; color: var(--p); border-bottom: calc(var(--bw) * 1px) solid var(--s); padding-bottom: 3mm; }
+.t-practical .title { text-align: center; font-size: 1.25em; font-weight: 600; margin: 2mm 0 3mm; }
+.t-practical table { width: 100%; border-collapse: collapse; }
+.t-practical th, .t-practical td { border: 1px solid var(--p); padding: 2.2mm 3mm; text-align: left; vertical-align: top; font-size: 0.93em; }
+.t-practical th { width: 34%; background: rgba(0, 0, 0, 0.045); font-weight: 600; color: var(--p); }
+.t-practical table.main { margin-top: 3mm; }
+.t-practical table.main td { font-weight: 500; }
+.t-practical .two { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+.t-practical .two h4 { margin-bottom: 2mm; font-size: 0.78em; letter-spacing: 0.16em; text-transform: uppercase; color: var(--p); }
+.t-practical .two th { width: 40%; }
+.t-practical .extra { text-align: left; }
+
+/* ---------- 5. Science & Research ---------- */
+.t-science::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 14mm; background: var(--p); }
+.t-science .content { padding-left: 30mm; }
+.t-science .mol { position: absolute; right: 8mm; bottom: 9mm; width: 56mm; height: 56mm; color: var(--p); opacity: 0.07; }
+.t-science .top { display: flex; align-items: center; gap: 5mm; }
+.t-science .top .logos { flex: none; gap: 3mm; }
+.t-science .inst { font-weight: 700; color: var(--p); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.95em; line-height: 1.3; }
+.t-science .inst small { display: block; margin-top: 0.8mm; font-weight: 400; letter-spacing: 0; text-transform: none; color: #555; font-size: 0.8em; }
+.t-science .doctype { align-self: flex-start; margin-top: 16mm; background: var(--s); color: #fff; padding: 1.3mm 4mm; font-size: 0.72em; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; }
+.t-science .title { margin: 5mm 0 4mm; font-size: 2.3em; line-height: 1.12; font-weight: 700; color: var(--p); }
+.t-science .exp { font-size: 1.05em; color: #444; border-left: 3px solid var(--s); padding-left: 4mm; }
+.t-science .blocks { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.t-science .blk { background: #fff; border: 1px solid #d3d7de; border-top: 3px solid var(--p); padding: 3.5mm 4mm; }
+.t-science .blk h4 { margin-bottom: 2.5mm; font-size: 0.7em; letter-spacing: 0.18em; text-transform: uppercase; color: var(--p); }
+.t-science .extra { text-align: left; }
+
+/* ---------- 6. Creative Editorial ---------- */
+.t-editorial .content { padding: 0; flex-direction: row; }
+.t-editorial .spine { flex: 0 0 34mm; background: var(--p); color: #fff; display: flex; align-items: flex-end; justify-content: center; padding: 14mm 0; overflow: hidden; }
+.t-editorial .spine span { writing-mode: vertical-rl; transform: rotate(180deg); font-size: 2.1em; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; max-height: 100%; overflow: hidden; }
+.t-editorial .main { flex: 1; min-width: 0; padding: 17mm 17mm 15mm 14mm; display: flex; flex-direction: column; }
+.t-editorial .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 5mm; }
+.t-editorial .inst { max-width: 60%; font-size: 0.82em; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--p); line-height: 1.4; }
+.t-editorial .inst small { display: block; margin-top: 1mm; font-weight: 400; letter-spacing: 0.06em; text-transform: none; color: #5b616b; }
+.t-editorial .logos { gap: 3mm; flex: none; }
+.t-editorial .kicker { margin-bottom: 4mm; font-size: 0.76em; letter-spacing: 0.24em; text-transform: uppercase; color: var(--s); font-weight: 700; }
+.t-editorial .title { font-size: 3em; line-height: 1.05; font-weight: 800; color: var(--p); letter-spacing: -0.015em; }
+.t-editorial .exp { margin-top: 4mm; font-size: 1.1em; font-style: italic; color: #444; }
+.t-editorial .bar { width: 26mm; height: calc(var(--bw) * 2px + 2px); background: var(--s); margin-top: 6mm; }
+.t-editorial .grow2 { flex: 0.6 1 auto; min-height: 6mm; }
+.t-editorial .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; }
+.t-editorial .extra { text-align: left; }
+.t-editorial .aff { margin-top: 6mm; font-size: 0.78em; color: #6a707a; letter-spacing: 0.04em; }
+
+/* ---------- shared additions ---------- */
+.page .title, .page .college, .page .doctype, .page .bt, .page .inst, .page .mn-inst, .page .hname, .page .spine span, .page .doctype-box span { font-family: var(--hfont, var(--font)); }
+.page .kv dd.blank, .page td.blank { border-bottom: 1px solid #8b919b; min-height: 1.3em; }
+.page .kv dd.blank { height: 1.3em; }
+.page .wm { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; overflow: hidden; z-index: 0; }
+.page .wm span { transform: rotate(-32deg); font-family: var(--hfont, var(--font)); font-weight: 800; font-size: 16mm; line-height: 1.05; text-align: center; max-width: 150%; color: var(--p); opacity: 0.07; text-transform: uppercase; letter-spacing: 0.05em; white-space: normal; width: 80%; }
+.page .frame { z-index: 1; }
+.page .content { z-index: 2; }
+.page .sigs { position: absolute; left: 19mm; right: 19mm; bottom: 13mm; display: flex; justify-content: space-between; gap: 18mm; z-index: 3; font-size: calc(10pt * var(--fs)); }
+.page .sigs div { flex: 1; text-align: center; }
+.page .sigs i { display: block; border-top: 1px solid #333; margin-bottom: 1.4mm; }
+.page.has-sigs .content { padding-bottom: 32mm; }
+.t-editorial.has-sigs .content { padding-bottom: 0; }
+.t-editorial.has-sigs .main { padding-bottom: 32mm; }
+.t-editorial .sigs { left: 53mm; }
+.t-science .sigs { left: 32mm; }
+.t-banner.has-sigs .content { padding-bottom: 0; }
+.t-banner.has-sigs .bd { padding-bottom: 32mm; }
+
+/* ---------- Official Seal ---------- */
+.t-seal .top { text-align: center; }
+.t-seal .sealwrap { position: relative; width: calc(var(--logo) * var(--k) * 2.6); height: calc(var(--logo) * var(--k) * 2.6); margin: 0 auto 2.5mm; }
+.t-seal .ring { position: absolute; inset: 0; width: 100%; height: 100%; }
+.t-seal .sealmid { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+.t-seal .sealmid .logo { height: calc(var(--logo) * var(--k) * 1.28); max-width: calc(var(--logo) * var(--k) * 1.5); }
+.t-seal .affil { display: flex; align-items: center; justify-content: center; gap: 2.5mm; font-style: italic; font-size: 0.95em; }
+.t-seal .affil .logo.tiny { height: calc(var(--logo) * var(--k) * 0.38); }
+.t-seal .loc { margin-top: 0.8mm; font-size: 0.78em; color: #5b616b; letter-spacing: 0.14em; text-transform: uppercase; }
+.t-seal .orn { display: flex; align-items: center; gap: 3mm; margin: 5mm 12mm; }
+.t-seal .orn span { flex: 1; height: 1px; background: var(--s); }
+.t-seal .orn b { width: 2.4mm; height: 2.4mm; background: var(--s); transform: rotate(45deg); }
+.t-seal .dept { text-align: center; font-weight: 600; font-size: 1.05em; color: var(--p); }
+.t-seal .doctype { text-align: center; margin: 7mm 0 3mm; letter-spacing: 0.3em; text-transform: uppercase; font-size: 0.82em; color: var(--s); font-weight: 700; }
+.t-seal .title { text-align: center; font-size: 2em; line-height: 1.2; font-weight: 700; color: var(--p); margin: 0 0 3mm; }
+.t-seal .exp { text-align: center; font-style: italic; margin-bottom: 3mm; }
+.t-seal .subs { text-align: center; line-height: 1.7; }
+.t-seal .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 10mm; border-top: 1px solid var(--s); padding-top: 5mm; }
+.t-seal .foot { display: flex; justify-content: center; flex-wrap: wrap; gap: 2mm 8mm; margin-top: 6mm; font-size: 0.9em; }
+
+/* ---------- Bold Banner ---------- */
+.t-banner .content { padding: 0; }
+.t-banner .hd { background: var(--p); color: #fff; padding: 16mm 19mm 14mm; position: relative; }
+.t-banner .hd::after { content: ""; position: absolute; left: 19mm; bottom: 0; width: 30mm; height: 2.2mm; background: var(--s); }
+.t-banner .hrow { display: flex; align-items: center; gap: 5mm; }
+.t-banner .hrow .logos { flex: none; gap: 3mm; }
+.t-banner .hrow .logo { background: #fff; border-radius: 50%; padding: 0.6mm; }
+.t-banner .hname { font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.95em; line-height: 1.3; }
+.t-banner .hname small { display: block; margin-top: 0.8mm; font-weight: 400; text-transform: none; letter-spacing: 0.02em; opacity: 0.85; font-size: 0.8em; }
+.t-banner .pill { display: inline-block; margin-top: 14mm; padding: 1.3mm 4mm; background: var(--s); color: #fff; font-weight: 700; font-size: 0.72em; letter-spacing: 0.2em; text-transform: uppercase; }
+.t-banner .title { margin: 5mm 0 0; font-size: 2.5em; line-height: 1.1; font-weight: 800; color: #fff; }
+.t-banner .exp { margin-top: 3mm; color: rgba(255, 255, 255, 0.88); font-style: italic; }
+.t-banner .bd { flex: 1 1 auto; min-height: 0; padding: 12mm 19mm 16mm; display: flex; flex-direction: column; }
+.t-banner .cards { display: grid; gap: 4.5mm; }
+.t-banner .card { border-left: 3px solid var(--s); padding: 1mm 0 1mm 4.5mm; }
+.t-banner .card h4 { margin-bottom: 2mm; font-size: 0.7em; letter-spacing: 0.2em; text-transform: uppercase; color: var(--p); }
+.t-banner .card .kv { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2mm 6mm; }
+.t-banner .extra { text-align: left; }
+
+/* ---------- Group Project ---------- */
+.t-group .top { text-align: center; }
+.t-group .top .logos { margin-bottom: 3mm; }
+.t-group .college { font-size: 1.35em; font-weight: 700; color: var(--p); text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.2; }
+.t-group .affil { margin-top: 1mm; font-size: 0.92em; font-style: italic; }
+.t-group .orn { display: flex; align-items: center; gap: 3mm; margin: 5mm 12mm; }
+.t-group .orn span { flex: 1; height: 1px; background: var(--s); }
+.t-group .orn b { width: 2.4mm; height: 2.4mm; background: var(--s); transform: rotate(45deg); }
+.t-group .doctype { text-align: center; letter-spacing: 0.3em; text-transform: uppercase; font-size: 0.82em; color: var(--s); font-weight: 700; margin-bottom: 3mm; }
+.t-group .title { text-align: center; font-size: 1.9em; line-height: 1.2; font-weight: 700; color: var(--p); }
+.t-group .exp { text-align: center; font-style: italic; margin-top: 2mm; }
+.t-group .sec { margin: 0 0 2.5mm; font-size: 0.75em; letter-spacing: 0.18em; text-transform: uppercase; color: var(--p); }
+.t-group table.members { width: 100%; border-collapse: collapse; }
+.t-group table.members th, .t-group table.members td { border: 1px solid var(--p); padding: 2.1mm 2.6mm; text-align: left; font-size: 0.92em; }
+.t-group table.members thead th { background: var(--p); color: #fff; font-weight: 600; letter-spacing: 0.04em; }
+.t-group table.members .n { width: 9mm; text-align: center; }
+.t-group table.members tbody tr:nth-child(even) td { background: rgba(0, 0, 0, 0.03); }
+.t-group .two { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; border-top: 1px solid var(--s); padding-top: 5mm; }
+.t-group .two h4 { margin-bottom: 2.5mm; font-size: 0.72em; letter-spacing: 0.18em; text-transform: uppercase; color: var(--s); }
+.t-group .extra { text-align: left; }
